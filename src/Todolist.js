@@ -103,8 +103,23 @@ class Todolist extends Component {
     })
   }
 
+  componentWillMount() {
+    console.log('componentWillMount')
+  }
+
+  //组件改变后是否执行更新
+  shouldComponentUpdate() {
+	  console.log('shouldComponentUpdate')
+    return true;
+  }
+
+  componentWillUpdate() {
+	  console.log('componentWillUpdate')
+  }
+
   // render里面各个元素一定要在
   render() {
+    console.log('parent render');
     return (
       <Fragment>
         <input
@@ -116,6 +131,12 @@ class Todolist extends Component {
       </Fragment>
     );
   }
+
+	componentDidMount() {
+		console.log('componentDidMount')
+	}
+
 }
+
 
 export default Todolist;

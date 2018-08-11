@@ -13,7 +13,19 @@ class TodoItem extends React.Component {
 		deleteItem(index)
 	}
 
+	// 使用该函数时，子组件要向父组件接受参数
+	// 第一次存在于父组件中不执行
+	// 之前存在才回执行
+	componentWillReceiveProps() {
+		console.log('child componentWillReciveProps');
+	}
+
+	componentWillUnmount() {
+		console.log('componentWillUnmount');
+	}
+
 	render() {
+		console.log('child render');
 		const {content,test} = this.props;
 		return (
 			<div onClick={this.handleDelete}>
