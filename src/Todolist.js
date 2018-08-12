@@ -1,4 +1,5 @@
 import React, { Component, Fragment} from 'react';
+import axios from 'axios'
 import TodoItem from './TodoItem';
 
 // 如果没有import { Component, Fragment} from 'react';
@@ -22,10 +23,7 @@ class Todolist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: [
-        'learn english',
-        'learn react'
-      ],
+      list: [],
       inputValue: ''
     };
 
@@ -51,8 +49,6 @@ class Todolist extends Component {
     this.setState({
       list: [...this.state.list,this.state.inputValue],
       inputValue: ''
-    }, ()=>{
-      console.log(this.ul.querySelectorAll('div').length);
     })
     // console.log(this.ul.querySelectorAll('div').length);
     // 此时，因为setState是异步的，所以数据console length时，此时操纵dom数据还没有更新
@@ -60,20 +56,20 @@ class Todolist extends Component {
 
 
   // 有ref之后
-	handleInputClick(e) {
-    const value = this.input.value;
-    this.setState({
-      inputValue: value
-    })
-  }
-  // 没有ref之前
-  // handleInputClick(e) {
-  //   // console.log(e.target);
-  //   // <input value="ssss">
+  // handleInputClick() {
+  //   const value = this.input.value;
   //   this.setState({
-  //     inputValue: e.target.value
+  //     inputValue: value
   //   })
   // }
+  // 没有ref之前
+  handleInputClick(e) {
+    // console.log(e.target);
+    // <input value="ssss">
+    this.setState({
+      inputValue: e.target.value
+    })
+  }
 
   // key值最好不用index
   // a 0, b 1, c 2
@@ -103,21 +99,26 @@ class Todolist extends Component {
     })
   }
 
-  componentWillMount() {
-    console.log('componentWillMount')
-  }
+  // componentWillMount() {
+  //   console.log('componentWillMount')
+  // }
+  //
+  // //组件改变后是否执行更新
+  // shouldComponentUpdate() {
+	 //  console.log('shouldComponentUpdate')
+  //   return true;
+  // }
+  //
+  // componentWillUpdate() {
+	 //  console.log('componentWillUpdate')
+  // }
 
-  //组件改变后是否执行更新
-  shouldComponentUpdate() {
-	  console.log('shouldComponentUpdate')
-    return true;
-  }
+  // render里面各个元素一定要在一个div里面
+  // 但是如果在空div里面进行for渲染时就会出现问题
+  // 因此放在fragment里面就不会出现问题
 
-  componentWillUpdate() {
-	  console.log('componentWillUpdate')
-  }
-
-  // render里面各个元素一定要在
+  // 父组件进行更新的时候，子组件也会重新render
+  // 因此会造成性能的损耗，这个时候在子组件进行shouldComponentUpdate()
   render() {
     console.log('parent render');
     return (
@@ -127,13 +128,26 @@ class Todolist extends Component {
           value={this.state.inputValue}
           onChange={this.handleInputClick}/>
         <button className='btn' onClick={this.handleButtonClick}>添加</button>
-        <ul style={{color: 'blue'}} ref={(ul)=>{this.ul = ul}}>{this.getItems()}</ul>
+        <ul style={{color: 'blue'}} >{this.getItems()}</ul>
       </Fragment>
     );
   }
 
 	componentDidMount() {
-		console.log('componentDidMount')
+		axios({
+      url: '/api/todolist',
+      method: 'get',
+      param: {}
+    })
+      .then((res) => {
+        console.log(res.data);
+        this.setState(() => ({
+          list: [...res.data]
+        }))
+      })
+      .catch(() => {
+        alert('error');
+      })
 	}
 
 }

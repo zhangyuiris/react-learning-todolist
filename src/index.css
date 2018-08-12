@@ -1,3 +1,22 @@
 .btn {
   background-color: pink;
 }
+
+.show {
+  animation: show-item 2s ease-in forwards;
+}
+
+@keyframes show-items {
+  0% {
+    opacity: 0;
+    color: blue;
+  }
+  50% {
+    opacity: 0.5;
+    color: green;
+  }
+  100% {
+    opacity: 1;
+    color: red;
+  }
+}
