@@ -127,7 +127,7 @@ class Todolist extends Component {
           ref={(input)=>{this.input = input}}
           value={this.state.inputValue}
           onChange={this.handleInputClick}/>
-        <button className='btn' onClick={this.handleButtonClick}>添加</button>
+        <button className={'btn'} onClick={this.handleButtonClick}>添加</button>
         <ul style={{color: 'blue'}} >{this.getItems()}</ul>
       </Fragment>
     );
@@ -146,7 +146,7 @@ class Todolist extends Component {
         }))
       })
       .catch(() => {
-        alert('error');
+        console.log('error');
       })
 	}
 

@@ -3,7 +3,11 @@
 }
 
 .show {
-  animation: show-item 2s ease-in forwards;
+  animation: show-items 2s ease-in forwards;
+}
+
+.hide {
+  animation: hide-items 2s ease-in forwards;
 }
 
 @keyframes show-items {
@@ -17,6 +21,21 @@
   }
   100% {
     opacity: 1;
+    color: red;
+  }
+}
+
+@keyframes hide-items {
+  0% {
+    opacity: 1;
+    color: blue;
+  }
+  50% {
+    opacity: 0.5;
+    color: green;
+  }
+  100% {
+    opacity: 0;
     color: red;
   }
 }
