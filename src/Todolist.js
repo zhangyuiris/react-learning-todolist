@@ -149,8 +149,6 @@ class Todolist extends Component {
         console.log('error');
       })
 	}
-
 }
-
 
 export default Todolist;
