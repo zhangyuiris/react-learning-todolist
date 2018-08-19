@@ -3,7 +3,8 @@ import 'antd/dist/antd.css';
 import { Input, Button, List } from 'antd';
 import store from './store';
 
-class Addant extends Component {
+class TodoList extends Component {
+
 	constructor(props) {
 		super(props);
 		this.state = store.getState();
@@ -56,7 +57,4 @@ class Addant extends Component {
 
 }
 
-
-
-
-export default Addant
+export default TodoList;
