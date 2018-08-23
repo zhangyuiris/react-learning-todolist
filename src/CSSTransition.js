@@ -1,7 +1,7 @@
 import React, { Component,Fragment} from 'react';
 import {CSSTransition} from 'react-transition-group';
 
-class Animation extends Component{
+class CSSTransition extends Component{
 
 	constructor(props) {
 		super(props);
@@ -39,4 +39,4 @@ class Animation extends Component{
 	}
 }
 
-export default Animation;
+export default CSSTransition;

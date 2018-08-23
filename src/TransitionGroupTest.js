@@ -2,7 +2,7 @@ import React, { Component,Fragment} from 'react';
 import {CSSTransition} from 'react-transition-group';
 import {TransitionGroup} from 'react-transition-group';
 
-class New extends Component{
+class TransitionGroupTest extends Component{
 
 	constructor(props) {
 		super(props);
@@ -47,4 +47,4 @@ class New extends Component{
 	}
 }
 
-export default New;
+export default TransitionGroupTest;

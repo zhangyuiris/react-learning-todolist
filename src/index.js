@@ -5,11 +5,11 @@ import 'antd/dist/antd.css';
 
 // 大写字母开头组件
 // import Todolist from './Todolist';
-// import Animation from './Animation';
-// import New from './New';
-import Addant from "./Addant";
+// import CSSTransition from './CSSTransition';
+// import TransitionGroupTest from './TransitionGroupTest';
+import Addant from "./TodoListV2";
 
 // ReactDOM.render(<Todolist />, document.getElementById('root'));
-// ReactDOM.render(<Animation />, document.getElementById('animation'));
-// ReactDOM.render(<New />, document.getElementById('new'));
+// ReactDOM.render(<CSSTransition />, document.getElementById('animation'));
+// ReactDOM.render(<TransitionGroupTest />, document.getElementById('new'));
 ReactDOM.render(<Addant />, document.getElementById('antd'));
