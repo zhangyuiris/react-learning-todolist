@@ -1,7 +1,7 @@
 import React, { Component,Fragment} from 'react';
 import {CSSTransition} from 'react-transition-group';
 
-class CSSTransition extends Component{
+class CSS extends Component{
 
 	constructor(props) {
 		super(props);
@@ -39,4 +39,4 @@ class CSSTransition extends Component{
 	}
 }
 
-export default CSSTransition;
+export default CSS;
